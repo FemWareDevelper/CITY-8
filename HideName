@@ -1,0 +1,11 @@
+-- PlayerGui içindeki NameTag_ ile başlayan tüm objeleri sil
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local playerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+for _, guiObj in ipairs(playerGui:GetChildren()) do
+    if guiObj.Name:sub(1, 8) == "NameTag_" then
+        guiObj:Destroy()
+    end
+end
