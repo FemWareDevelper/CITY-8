@@ -1,0 +1,8 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local playerGui = LocalPlayer:WaitForChild("PlayerGui")
+local city8ui = playerGui:WaitForChild("CITY8UI")
+local shopUI = city8ui:WaitForChild("Shop")
+
+shopUI.Visible = true
