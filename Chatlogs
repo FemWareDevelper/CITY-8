@@ -1,0 +1,8 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local playerGui = LocalPlayer:WaitForChild("PlayerGui")
+local adminUI = playerGui:WaitForChild("AdminUI")
+local chatLogs = adminUI:WaitForChild("ChatLogs")
+
+chatLogs.Visible = true
