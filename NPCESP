@@ -1,0 +1,23 @@
+local Workspace = game:GetService("Workspace")
+local RunService = game:GetService("RunService")
+
+local function ensureHighlight(npc)
+    if npc:FindFirstChild("HumanoidRootPart") and not npc:FindFirstChild("ESP_Highlight") then
+        local highlight = Instance.new("Highlight")
+        highlight.Name = "ESP_Highlight"
+        highlight.Adornee = npc
+        highlight.FillColor = Color3.fromRGB(255, 0, 0)
+        highlight.FillTransparency = 0.5
+        highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+        highlight.OutlineTransparency = 0
+        highlight.Parent = npc
+    end
+end
+
+RunService.RenderStepped:Connect(function()
+    for _, obj in ipairs(Workspace:GetDescendants()) do
+        if obj:IsA("Model") and obj.Name:sub(1,4) == "_NPC" then
+            ensureHighlight(obj)
+        end
+    end
+end)
