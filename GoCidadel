@@ -1,0 +1,11 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+
+-- Teleport konumu
+local targetPart = workspace:WaitForChild("Map"):WaitForChild("info_overlay")
+
+-- Teleport
+if character:FindFirstChild("HumanoidRootPart") then
+    character.HumanoidRootPart.CFrame = targetPart.CFrame
+end
